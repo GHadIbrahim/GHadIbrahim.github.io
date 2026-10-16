@@ -1,0 +1,180 @@
+body
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color:black;
+}
+.browse_container
+{
+	display: grid;
+	justify-content: center;
+	background-color:black;
+}
+.label
+{
+	font-size:28px;
+	color: red;
+	font-weight: bold;
+	font-family:monospace;
+}
+.browse_button
+{
+	font-family:monospace;
+	font-size: 35px;
+	font-weight: bold;
+	border-radius: 30px;
+	border-width: 4px;
+	border-color: red;
+	padding: 10px;
+}
+.previous_viewer
+{
+	max-width: 500px;
+	max-height: 400px;
+	object-fit: contain;
+	margin: 0 15px;
+	position: absolute;
+	opacity: 0%;
+	transform: translateX(-100%);
+}
+.current_viewer
+{
+	max-width: 500px;
+	max-height: 400px;
+	object-fit: contain;
+	margin: 0 15px;
+	position: absolute;
+}
+.next_viewer
+{
+	max-width: 500px;
+	max-height: 400px;
+	object-fit: contain;
+	margin: 0 15px;
+	position: absolute;
+	opacity: 0%;
+	transform: translateX(100%);
+}
+.previous_button,.next_button
+{
+	display: flex;
+	font-size:80px;
+	font-weight:bold;
+	background-color:grey;
+	border-radius:40px;
+	border-width: 1px;
+	color:white;
+	position: absolute;
+	justify-content: center;
+	align-items: center;
+	opacity: 100%;
+	z-index: 10;
+}
+.previous_button
+{
+	left: 0;
+}
+.next_button
+{
+	right: 0;
+}
+.viewer_container
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap:15px;
+	margin-top:20px;
+	position:relative;
+	width:700px;
+	height:400px;
+}
+.previous_viewer.exit_left,
+.current_viewer.exit_left,
+.next_viewer.exit_left
+{
+	animation-name:exit_left_animation;
+	animation-timing-function: linear;
+	animation-duration: 500ms;
+	animation-delay: 0ms;
+	animation-fill-mode: forwards;
+}
+.previous_viewer.exit_right,
+.current_viewer.exit_right,
+.next_viewer.exit_right
+{
+	animation-name:exit_right_animation;
+	animation-timing-function: linear;
+	animation-duration: 500ms;
+	animation-delay: 0ms;
+	animation-fill-mode: forwards;
+}
+.previous_viewer.enter_left,
+.current_viewer.enter_left,
+.next_viewer.enter_left
+{
+	animation-name:enter_left_animation;
+	animation-timing-function: linear;
+	animation-duration: 500ms;
+	animation-delay: 0ms;
+	animation-fill-mode: forwards;
+}
+.previous_viewer.enter_right,
+.current_viewer.enter_right,
+.next_viewer.enter_right
+{
+	animation-name:enter_right_animation;
+	animation-timing-function: linear;
+	animation-duration: 500ms;
+	animation-delay: 0ms;
+	animation-fill-mode: forwards;
+}
+@keyframes exit_left_animation
+{
+	0%
+	{
+		opacity: 100%;
+	}
+	100%
+	{
+		opacity: 0%;
+		transform: translateX(-100%);
+	}
+}
+@keyframes exit_right_animation
+{
+	0%
+	{
+		opacity: 100%;
+	}
+	100%
+	{
+		opacity: 0%;
+		transform: translateX(100%);
+	}
+}
+@keyframes enter_left_animation
+{
+	0%
+	{
+		opacity: 0%;
+	}
+	100%
+	{
+		opacity: 100%;
+		transform: translateX(0%);
+	}
+}
+@keyframes enter_right_animation
+{
+	0%
+	{
+		opacity:0%;
+	}
+	100%
+	{
+		opacity: 100%;
+		transform: translateX(0%);
+	}
+}
